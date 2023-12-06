@@ -12,6 +12,12 @@ a {
   cursor: pointer;
 }
 
+body {
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
+}
+
 header {
   width: 100%;
 }
@@ -44,11 +50,8 @@ nav {
 
 header a {
   color: #f5f5f5;
-  font-family: Pretendard;
   font-size: 18px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 header .header-top {
@@ -61,15 +64,13 @@ header .header-top {
 
 header span {
   color: #000;
-  font-family: Pretendard;
   font-size: 64px;
-  font-style: normal;
   font-weight: 700;
   line-height: 80px;
   text-align: center;
 }
 
-header span.header-text2 {
+header span.header-heading-color {
   background: linear-gradient(91deg, #6d6afe 17.28%, #ff9f9f 74.98%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -123,28 +124,29 @@ main {
 
 .sec-link {
   position: relative;
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  gap: 157px;
-  padding: 120px 0 50px;
 }
 
 .link-textbox {
   margin-top: 150px;
 }
 
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 157px;
+  padding: 50px 0;
+  background-color: white;
+}
+
 section span {
   color: #000;
-  font-family: Pretendard;
   font-size: 48px;
-  font-style: normal;
   font-weight: 700;
-  line-height: normal;
   letter-spacing: -0.3px;
 }
 
-span.link-text2 {
+span.link-heading-color {
   width: 291px;
   background: linear-gradient(96deg, #fe8a8a 1.72%, #a4ceff 74.97%);
   background-clip: text;
@@ -196,12 +198,7 @@ span.link-text2 {
 }
 
 .sec-folder {
-  display: flex;
-  align-items: center;
   flex-direction: row-reverse;
-  justify-content: center;
-  padding: 50px 0;
-  gap: 157px;
 }
 
 .folder-picturebox {
@@ -225,23 +222,15 @@ span.link-text2 {
 }
 
 .folder-textbox {
-  margin-top: -100px;
+  margin-bottom: 100px;
 }
 
-.folder-textbox span.folder-text2 {
+.folder-textbox span.folder-heading-color {
   background: linear-gradient(277deg, #6fbaff 59.22%, #ffd88b 93.66%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   letter-spacing: -0.3px;
-}
-
-.sec-share {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px 0;
-  gap: 157px;
 }
 
 .share-picturebox {
@@ -259,7 +248,7 @@ span.link-text2 {
   margin-top: -100px;
 }
 
-.share-text2 {
+.share-heading-color {
   background: linear-gradient(99deg, #6d7ccd 19.76%, #5288858c 52.69%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -282,12 +271,7 @@ span.link-text2 {
 }
 
 .sec-search {
-  display: flex;
-  align-items: center;
   flex-direction: row-reverse;
-  justify-content: center;
-  padding: 50px 0;
-  gap: 157px;
 }
 
 .search-picturebox {
@@ -323,7 +307,7 @@ span.link-text2 {
   margin-top: -100px;
 }
 
-.search-text2 {
+.search-heading-color {
   background: linear-gradient(271deg, #fe578f -9.84%, #68e8f9 107.18%);
   background-clip: text;
   -webkit-background-clip: text;
@@ -340,10 +324,8 @@ footer {
   color: #cfcfcf;
   font-family: Abel;
   font-size: 16px;
-  font-style: normal;
   font-weight: 400;
   height: 160px;
-  line-height: normal;
   margin-top: 120px;
   padding: 32px 104px 64px 104px;
 }

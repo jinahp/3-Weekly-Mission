@@ -9,6 +9,12 @@ a {
   box-sizing: border-box;
 }
 
+body {
+  font-family: Pretendard;
+  font-style: normal;
+  line-height: normal;
+}
+
 html {
   height: 100%;
 }
@@ -36,9 +42,6 @@ main {
 
 .text-common {
   color: #000;
-  font-family: Pretendard;
-  font-style: normal;
-  line-height: normal;
 }
 
 .sign-container {
@@ -63,11 +66,8 @@ main .sign-linkbrary-container {
 main .sign-linkbrary-container > a {
   color: #6d6afe;
   border-bottom: 1px solid #6d6afe;
-  font-family: Pretendard;
   font-size: 16px;
-  font-style: normal;
   font-weight: 600;
-  line-height: normal;
 }
 
 .sign-logo,
@@ -148,7 +148,7 @@ input.sign-password {
 .social-icons {
   display: flex;
   align-items: flex-start;
-  gap: 8px;
+  gap: 10px;
 }
 
 .social-icons .ic-kakao {
