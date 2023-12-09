@@ -35,7 +35,6 @@ nav {
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1920px;
-  padding: 20px 200px;
 }
 
 .nav-login a {
@@ -267,6 +266,10 @@ footer a {
   .header-page {
     width: 1200px;
   }
+
+  nav {
+    padding: 20px 200px;
+  }
 }
 
 /* 태블릿 이하 */
@@ -276,7 +279,6 @@ footer a {
     align-items: center;
     justify-content: space-between;
     margin: 0 auto;
-    padding: 20px 32px;
   }
 }
 
@@ -299,6 +301,10 @@ footer a {
     width: 698px;
   }
 
+  nav {
+    padding: 20px 32px;
+  }
+
   section {
     gap: 10px 50px;
     padding: 50px 0 50px;
@@ -319,7 +325,11 @@ footer a {
   header .header-top {
     padding: 70px 0 0;
   }
-  header,
+
+  nav {
+    padding: 13px 32px;
+  }
+
   section {
     padding: 0 32px;
   }
