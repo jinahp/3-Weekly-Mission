@@ -84,7 +84,7 @@ main .sign-linkbrary-container > a {
   gap: 12px;
 }
 
-.sign-form-container > input {
+.sign-form-container input {
   display: flex;
   width: 400px;
   padding: 18px 15px;
@@ -95,7 +95,7 @@ main .sign-linkbrary-container > a {
   background: #fff;
 }
 
-.sign-form-container > input:focus {
+.sign-form-container input:focus {
   border: 1px solid #6d6afe;
 }
 
@@ -131,14 +131,30 @@ a.sign-login {
   font-weight: 600;
 }
 
-input.sign-password[type="password"] {
-  background: url("/img/ic-eye-off.png") no-repeat 16px 16px white;
-  background-position-x: 370px;
+.input-container {
+  width: 400px;
+  position: relative;
 }
 
-input.sign-password {
-  background: url("/img/ic-eye-on.png") no-repeat 16px 16px white;
-  background-position-x: 370px;
+.sign-password {
+  width: 100%;
+}
+
+.input-container::after {
+  background-image: url("/img/ic-eye-on.png");
+  background-size: cover;
+  content: "";
+  height: 16px;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+}
+
+.input-container.password::after {
+  background-image: url("/img/ic-eye-off.png");
+  /* background: url("/img/ic-eye-on.png") no-repeat 16px 16px; */
 }
 
 .social-login {
@@ -154,4 +170,47 @@ input.sign-password {
 .social-icons .ic-kakao {
   border: 1.5px solid #d3d4dd;
   border-radius: 50%;
+}
+
+/* PC */
+@media (min-width: 1200px) {
+}
+
+/* 태블릿 이하 */
+@media (max-width: 1199px) {
+}
+
+/* 태블릿 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  main {
+    display: flex;
+    padding: 200px 0 291px;
+  }
+}
+
+/* 모바일 */
+@media (min-width: 375px) and (max-width: 767px) {
+  main {
+    display: flex;
+    align-items: stretch;
+    padding: 120px 32px;
+  }
+  .sign-logo {
+    width: 100%;
+  }
+  .sign-form-container > input {
+    width: 100%;
+  }
+  .input-container {
+    width: 100%;
+    position: relative;
+  }
+
+  input.sign-password {
+    width: 100%;
+  }
+
+  a.sign-login {
+    width: 100%;
+  }
 }
