@@ -263,10 +263,6 @@ footer a {
 
 /* PC */
 @media (min-width: 1200px) {
-  .header-page {
-    width: 1200px;
-  }
-
   nav {
     padding: 20px 200px;
   }
@@ -285,10 +281,6 @@ footer a {
 
   .header-heading {
     width: 520px;
-  }
-
-  .header-page {
-    width: 698px;
   }
 
   nav {
@@ -336,10 +328,6 @@ footer a {
     font-size: 14px;
     font-weight: 600;
     height: 16px;
-  }
-
-  .header-content {
-    width: 100%;
   }
 
   nav img {
