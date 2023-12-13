@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/css/sign-common.css" />
   </head>
   <body>
-    <main>
+    <form method="post" id="signup-form">
       <div class="sign-container">
         <a href="/"><img src="/img/logo.svg" class="sign-logo" /></a>
         <div class="sign-linkbrary-container text-common text-big">
@@ -20,6 +20,7 @@
       <div class="sign-form-container text-common text-small">
         <label for="email">이메일</label>
         <input type="email" class="sign-email" />
+        <div id="email-error-message" class="error-message"></div>
         <label for="password">비밀번호</label>
         <div class="input-container password">
           <input type="password" class="sign-password" />
@@ -43,6 +44,7 @@
           </div>
         </div>
       </div>
-    </main>
+    </form>
+    <script src="/js/sign-common.js"></script>
   </body>
 </html>
