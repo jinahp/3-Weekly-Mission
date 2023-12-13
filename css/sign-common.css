@@ -124,6 +124,7 @@ main .sign-linkbrary-container > a {
 
 a.sign-login {
   display: flex;
+  width: 100%;
   justify-content: center;
   align-items: center;
   padding: 16px 20px;
