@@ -14,6 +14,9 @@ emailInput.addEventListener("focusout", function (e) {
     this.classList.add("input-error");
   } else {
     document.getElementById("email-error-message").textContent = "";
+    document.getElementById("password-error-message").textContent = "";
+    document.getElementById("password-error-message-different").textContent =
+      "";
     emailInput.classList.remove("input-error");
   }
 });
