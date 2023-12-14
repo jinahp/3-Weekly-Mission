@@ -20,3 +20,20 @@ emailInput.addEventListener("focusout", function (e) {
     emailInput.classList.remove("input-error");
   }
 });
+
+document.querySelectorAll(".input-container").forEach((container) => {
+  const icon = container.querySelector(".eye-icon");
+  const passwordInput = container.querySelector(".sign-password");
+
+  container.addEventListener("click", function () {
+    const currentType = passwordInput.type;
+
+    if (currentType === "password") {
+      passwordInput.type = "text";
+      icon.style.backgroundImage = 'url("/img/ic-eye-on.png")';
+    } else {
+      passwordInput.type = "password";
+      icon.style.backgroundImage = 'url("/img/ic-eye-off.png")';
+    }
+  });
+});

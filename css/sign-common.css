@@ -154,7 +154,7 @@ a.sign-login {
   width: 100%;
 }
 
-.input-container::after {
+.eye-icon {
   background-image: url("/img/ic-eye-on.png");
   background-size: cover;
   content: "";
@@ -166,9 +166,8 @@ a.sign-login {
   width: 16px;
 }
 
-.input-container.password::after {
+.eye-icon.password::after {
   background-image: url("/img/ic-eye-off.png");
-  /* background: url("/img/ic-eye-on.png") no-repeat 16px 16px; */
 }
 
 .social-login {
