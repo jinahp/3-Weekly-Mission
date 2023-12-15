@@ -10,14 +10,14 @@ emailInput.addEventListener("focusout", function (e) {
     this.classList.add("input-error");
   } else if (!emailPattern.test(emailValue)) {
     document.getElementById("email-error-message").textContent =
-      "올바른 이메일 형식이 아닙니다.";
+      "올바른 이메일 주소가 아닙니다.";
     this.classList.add("input-error");
   } else {
     document.getElementById("email-error-message").textContent = "";
     document.getElementById("password-error-message").textContent = "";
     document.getElementById("password-error-message-different").textContent =
       "";
-    emailInput.classList.remove("input-error");
+    this.classList.remove("input-error");
   }
 });
 
@@ -34,6 +34,15 @@ document.querySelectorAll(".input-container").forEach((container) => {
     } else {
       passwordInput.type = "password";
       icon.style.backgroundImage = 'url("/img/ic-eye-off.png")';
+    }
+  });
+  passwordInput.addEventListener("focusout", function () {
+    if (passwordInput.value) {
+      container.nextElementSibling.textContent = "";
+      passwordInput.classList.remove("input-error");
+    } else {
+      container.nextElementSibling.textContent = "비밀번호를 입력해주세요.";
+      passwordInput.classList.add("input-error");
     }
   });
 });
