@@ -14,9 +14,6 @@ emailInput.addEventListener("focusout", function (e) {
     this.classList.add("input-error");
   } else {
     document.getElementById("email-error-message").textContent = "";
-    document.getElementById("password-error-message").textContent = "";
-    document.getElementById("password-error-message-different").textContent =
-      "";
     this.classList.remove("input-error");
   }
 });
@@ -24,6 +21,7 @@ emailInput.addEventListener("focusout", function (e) {
 document.querySelectorAll(".input-container").forEach((container) => {
   const icon = container.querySelector(".eye-icon");
   const passwordInput = container.querySelector(".sign-password");
+  const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
   container.addEventListener("click", function () {
     const currentType = passwordInput.type;
@@ -37,12 +35,16 @@ document.querySelectorAll(".input-container").forEach((container) => {
     }
   });
   passwordInput.addEventListener("focusout", function () {
-    if (passwordInput.value) {
-      container.nextElementSibling.textContent = "";
-      passwordInput.classList.remove("input-error");
-    } else {
+    if (!passwordInput.value) {
       container.nextElementSibling.textContent = "비밀번호를 입력해주세요.";
       passwordInput.classList.add("input-error");
+    } else if (!passwordPattern.test(password)) {
+      container.nextElementSibling.textContent =
+        "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+      passwordCheck.classList.add("input-error");
+    } else {
+      container.nextElementSibling.textContent = "";
+      passwordInput.classList.remove("input-error");
     }
   });
 });
