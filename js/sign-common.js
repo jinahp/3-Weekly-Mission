@@ -23,6 +23,9 @@ document.querySelectorAll(".input-container").forEach((container) => {
   const icon = container.querySelector(".eye-icon");
   const passwordInput = container.querySelector(".sign-password");
 
+  icon.style.backgroundImage = 'url("/img/ic-eye-off.png")';
+  passwordInput.type = "password";
+
   icon.addEventListener("click", function () {
     const currentType = passwordInput.type;
 
