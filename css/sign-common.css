@@ -157,7 +157,6 @@ a.sign-login {
 .eye-icon {
   background-image: url("/img/ic-eye-on.png");
   background-size: cover;
-  content: "";
   height: 16px;
   position: absolute;
   right: 10px;
@@ -166,7 +165,7 @@ a.sign-login {
   width: 16px;
 }
 
-.eye-icon.password::after {
+.eye-icon.password {
   background-image: url("/img/ic-eye-off.png");
 }
 

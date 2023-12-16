@@ -28,6 +28,8 @@ function attemptSignup() {
     isValid = false;
     passwordCheck.classList.add("input-error");
   } else {
+    document.getElementById("password-error-message-different").textContent =
+      "";
     passwordCheck.classList.remove("input-error");
   }
 
@@ -37,6 +39,7 @@ function attemptSignup() {
     isValid = false;
     emailInput.classList.add("input-error");
   } else {
+    document.getElementById("email-error-message").textContent = "";
     emailInput.classList.remove("input-error");
   }
 
@@ -45,7 +48,12 @@ function attemptSignup() {
       "비밀번호를 입력해주세요.";
     isValid = false;
     passwordInput.classList.add("input-error");
+  } else if (!passwordPattern.test(passwordInput.value)) {
+    document.getElementById("password-error-message").textContent =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    passwordInput.classList.add("input-error");
   } else {
+    document.getElementById("password-error-message").textContent = "";
     passwordInput.classList.remove("input-error");
   }
 

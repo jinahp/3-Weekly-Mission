@@ -15,6 +15,13 @@ function attemptSignin() {
     return;
   }
 
+  if (!passwordPattern.test(passwordInput.value)) {
+    document.getElementById("password-error-message").textContent =
+      "비밀번호는 영문, 숫자 조합 8자 이상 입력해 주세요.";
+    passwordInput.classList.add("input-error");
+    return;
+  }
+
   document.getElementById("email-error-message").textContent =
     "이메일을 확인해주세요.";
   document.getElementById("password-error-message").textContent =

@@ -1,4 +1,5 @@
 let emailInput = document.querySelector(".sign-email");
+const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 
 emailInput.addEventListener("focusout", function (e) {
   let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -21,9 +22,8 @@ emailInput.addEventListener("focusout", function (e) {
 document.querySelectorAll(".input-container").forEach((container) => {
   const icon = container.querySelector(".eye-icon");
   const passwordInput = container.querySelector(".sign-password");
-  const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
 
-  container.addEventListener("click", function () {
+  icon.addEventListener("click", function () {
     const currentType = passwordInput.type;
 
     if (currentType === "password") {
