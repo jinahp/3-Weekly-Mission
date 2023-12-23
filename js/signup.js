@@ -14,24 +14,32 @@ document
   .addEventListener("click", attemptSignup);
 
 function checkDuplicateEmail(email) {
-  if (email === "test@codeit.com") {
-    errorMessage.textContent = "이미 사용 중인 이메일입니다.";
-    emailInput.classList.add("input-error");
-    isValid = false;
-  } else {
-    errorMessage.textContent = "";
-    emailInput.classList.remove("input-error");
-  }
+  axios
+    .post("https://bootcamp-api.codeit.kr/api/check-email", { email })
+    .then((response) => {
+      console.debug(response.data);
+      errorMessage.textContent = "";
+      emailInput.classList.remove("input-error");
+    })
+    .catch(signupError);
 }
 
-function validateEmail() {
-  if (!emailPattern.test(emailInput.value)) {
-    errorMessage.textContent = "이메일을 확인해주세요.";
-    isValid = false;
-    emailInput.classList.add("input-error");
-  } else {
-    checkDuplicateEmail(emailInput.value); // 버튼을 클릭했을 때
-  }
+function signup(email, password) {
+  axios
+    .post("https://bootcamp-api.codeit.kr/api/sign-up", { email, password })
+    .then((response) => {
+      let { data } = response.data;
+      localStorage.setItem("accessToken", data.accessToken);
+      location.href = "/folder";
+    })
+    .catch(signupError);
+}
+
+function signupError(err) {
+  let { error } = err.response.data;
+  errorMessage.textContent = error.message;
+  emailInput.classList.add("input-error");
+  isValid = false;
 }
 
 function validatePasswordMatch() {
@@ -67,11 +75,10 @@ function validatePassword() {
 
 function attemptSignup() {
   isValid = true;
-  validateEmail();
   validatePasswordMatch();
   validatePassword();
 
   if (isValid) {
-    signupForm.submit();
+    signup(emailInput.value, passwordInput.value);
   }
 }

@@ -1,3 +1,7 @@
+if (localStorage.getItem("accessToken")) {
+  location.replace("/folder");
+}
+
 const emailInput = document.querySelector(".sign-email");
 const errorMessage = document.getElementById("email-error-message");
 const passwordContainers = document.querySelectorAll(".input-container");
