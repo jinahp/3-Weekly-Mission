@@ -1,7 +1,12 @@
+import useQuery from 'hooks/useQuery';
 import logo from 'img/logo.svg';
 import './Header.scss';
 
 export function Header() {
+  const { data: user, isLoading } = useQuery(
+    'https://bootcamp-api.codeit.kr/api/sample/user'
+  );
+
   return (
     <header>
       <nav>
@@ -9,6 +14,14 @@ export function Header() {
           <img src={logo} alt="logo" />
         </a>
         <div className="account">
+          {user ? (
+            <>
+              <img src={user.profileImageSource} className="profile-img" />
+              <span>{user.email}</span>
+            </>
+          ) : (
+            isLoading || <button className="nav-login">로그인</button>
+          )}
         </div>
       </nav>
     </header>
