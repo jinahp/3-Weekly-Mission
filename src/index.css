@@ -20,7 +20,7 @@ a {
 }
 
 body {
-  font-family: "Pretendard", Helvetica;
+  font-family: 'Pretendard', Helvetica;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -35,5 +35,17 @@ main {
   flex-direction: column;
   > * {
     max-width: 1070px;
+  }
+
+  @media (min-width: 1124px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (max-width: 1123px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
   }
 }

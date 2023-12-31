@@ -17,7 +17,7 @@ export function Header() {
           {user ? (
             <>
               <img src={user.profileImageSource} className="profile-img" />
-              <span>{user.email}</span>
+              <span className="account-email">{user.email}</span>
             </>
           ) : (
             isLoading || <button className="nav-login">로그인</button>

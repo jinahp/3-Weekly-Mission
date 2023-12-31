@@ -23,6 +23,12 @@ header {
     border-radius: 50%;
   }
 
+  .account-email {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
   .nav-login {
     display: flex;
     justify-content: center;
@@ -30,7 +36,7 @@ header {
     border-radius: 8px;
     border: none;
     color: white;
-    font-family: "Pretendard", Helvetica;
+    font-family: 'Pretendard', Helvetica;
     padding: 16px 20px;
     width: 128px;
     font-size: 1.2em;

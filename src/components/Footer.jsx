@@ -1,22 +1,22 @@
-import "./Footer.scss";
-import facebook from "img/ic-facebook.png";
-import twitter from "img/ic-twitter.png";
-import youtube from "img/ic-youtube.png";
-import instagram from "img/ic-instagram.png";
+import './Footer.scss';
+import facebook from 'img/ic-facebook.png';
+import twitter from 'img/ic-twitter.png';
+import youtube from 'img/ic-youtube.png';
+import instagram from 'img/ic-instagram.png';
 
 function Footer() {
   return (
     <footer>
-      <div class="footer-copyright">©codeit - 2023</div>
-      <div class="footer-links">
-        <a href="/privacy" class="footer-privacy">
+      <div className="footer-links">
+        <a href="/privacy" className="footer-privacy">
           Privacy Policy
         </a>
-        <a href="/faq" class="footer-faq">
+        <a href="/faq" className="footer-faq">
           FAQ
         </a>
       </div>
-      <div class="footer-icons">
+      <div className="footer-copyright">©codeit - 2023</div>
+      <div className="footer-icons">
         <a href="https://www.facebook.com/?locale=ko_KR" target="_blank">
           <img src={facebook} />
         </a>
