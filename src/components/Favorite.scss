@@ -33,8 +33,10 @@ main {
 }
 
 .favorite-list {
+  width: 100%;
   display: grid;
   gap: 25px;
+  justify-items: center;
 
   @media (min-width: 1124px) {
     grid-template-columns: 1fr 1fr 1fr;

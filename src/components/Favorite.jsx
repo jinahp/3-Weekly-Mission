@@ -1,7 +1,7 @@
-import useQuery from "hooks/useQuery";
-import Card from "./Card";
-import "./Favorite.scss";
-import SearchBar from "./SearchBar";
+import useQuery from 'hooks/useQuery';
+import Card from './Card';
+import './Favorite.scss';
+import SearchBar from './SearchBar';
 
 export function Favorite() {
   const {
@@ -9,7 +9,7 @@ export function Favorite() {
       folder: { links, owner, ...folder },
     },
     isLoading,
-  } = useQuery("https://bootcamp-api.codeit.kr/api/sample/folder", {
+  } = useQuery('https://bootcamp-api.codeit.kr/api/sample/folder', {
     folder: { links: [], owner: {} },
   });
 
@@ -32,7 +32,7 @@ export function Favorite() {
         <SearchBar text="링크를 검색해 보세요." />
         <div className="favorite-list">
           {links.map((item) => (
-            <Card link={item} />
+            <Card link={item} key={item.id} />
           ))}
         </div>
       </main>
