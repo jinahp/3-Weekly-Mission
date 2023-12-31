@@ -1,0 +1,38 @@
+header {
+  background-color: var(--linkbrarybg);
+  padding: 20px 32px;
+  text-align: center;
+  nav {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    max-width: 1070px;
+    justify-content: space-between;
+  }
+
+  .account {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 0 auto;
+    gap: 6px;
+  }
+
+  .profile-img {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+  }
+
+  .nav-login {
+    display: flex;
+    justify-content: center;
+    background: linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%);
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-family: "Pretendard", Helvetica;
+    padding: 16px 20px;
+    width: 128px;
+    font-size: 1.2em;
+  }
+}

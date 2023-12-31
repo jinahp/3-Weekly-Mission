@@ -1,4 +1,5 @@
 import logo from 'img/logo.svg';
+import './Header.scss';
 
 export function Header() {
   return (
@@ -7,6 +8,8 @@ export function Header() {
         <a href="/">
           <img src={logo} alt="logo" />
         </a>
+        <div className="account">
+        </div>
       </nav>
     </header>
   );
