@@ -37,16 +37,13 @@ main {
   display: grid;
   gap: 25px;
   justify-items: center;
+  grid-template-columns: 1fr;
 
   @media (min-width: 1124px) {
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @media (max-width: 1123px) {
+  @media (min-width: 769px) and (max-width: 1123px) {
     grid-template-columns: 1fr 1fr;
-  }
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
   }
 }
