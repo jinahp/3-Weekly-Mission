@@ -6,7 +6,7 @@ export function SearchBar({ text }) {
     <div className="search-bar">
       <div className="search-bar-frame">
         <img className="ic-search" alt="Search" src={search} />
-        <div className="search-bar-text-wrapper">{text}</div>
+        <input className="search-bar-text-wrapper" placeholder={text} />
       </div>
     </div>
   );
