@@ -3,9 +3,10 @@ import moment from 'moment';
 import './card.scss';
 
 export function Card({ link }) {
-  const date = new Date(link.createdAt);
+  const createdAt = link.createdAt ?? link.created_at;
+  const date = new Date(createdAt);
   const dateString = date.toLocaleDateString();
-  const timeString = moment(link.createdAt).fromNow();
+  const timeString = moment(createdAt).fromNow();
 
   const handleClick = () => {
     window.open(link.url);
@@ -16,7 +17,7 @@ export function Card({ link }) {
       <img
         className="card-image"
         alt="thumbnail"
-        src={link.imageSource ?? defaultImg}
+        src={link.imageSource ?? link.image_source ?? defaultImg}
       />
       <div className="card-container">
         <div className="card-time">{timeString}</div>

@@ -1,0 +1,39 @@
+.addLink {
+  font-family: 'Pretendard', Helvetica;
+  width: 100%;
+
+  .addLink-frame {
+    background-color: #fff;
+    border: 1px solid #6d6afe;
+    border-radius: 10px;
+    width: 100%;
+    padding: 16px 20px;
+    align-items: center;
+    display: inline-flex;
+    gap: 12px;
+  }
+
+  .ic-link {
+    height: 16px;
+    width: 16px;
+  }
+
+  .addLink-text {
+    width: 100%;
+    font-size: 1.1em;
+  }
+
+  .addLink-button {
+    height: 37px;
+    padding: 10px 16px;
+    gap: 10px;
+    background: linear-gradient(91deg, #6d6afe 0%, #6ae3fe 100%);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+}
