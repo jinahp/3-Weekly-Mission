@@ -1,5 +1,5 @@
-import search from "img/ic-search.svg";
-import "./SearchBar.scss";
+import search from 'img/ic-search.svg';
+import './searchBar.scss';
 
 export function SearchBar({ text }) {
   return (

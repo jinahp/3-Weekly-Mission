@@ -1,6 +1,6 @@
-import Favorite from 'components/Favorite';
-import Footer from 'components/Footer';
-import Header from 'components/Header';
+import Favorite from 'components/favorite/Favorite';
+import Footer from 'components/footer/Footer';
+import Header from 'components/header/Header';
 
 export function App() {
   return (

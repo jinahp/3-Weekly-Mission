@@ -1,6 +1,6 @@
 import useQuery from 'hooks/useQuery';
 import logo from 'img/logo.svg';
-import './Header.scss';
+import './header.scss';
 
 export function Header() {
   const { data: user, isLoading } = useQuery(

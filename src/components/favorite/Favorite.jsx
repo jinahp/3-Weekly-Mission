@@ -1,7 +1,7 @@
 import useQuery from 'hooks/useQuery';
-import Card from './Card';
-import './Favorite.scss';
-import SearchBar from './SearchBar';
+import Card from 'components/card/Card';
+import './favorite.scss';
+import SearchBar from 'components/searchBar/SearchBar';
 
 export function Favorite() {
   const {

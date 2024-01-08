@@ -1,6 +1,6 @@
-import defaultImg from "img/img-default.svg";
-import moment from "moment";
-import "./Card.scss";
+import defaultImg from 'img/img-default.svg';
+import moment from 'moment';
+import './card.scss';
 
 export function Card({ link }) {
   const date = new Date(link.createdAt);

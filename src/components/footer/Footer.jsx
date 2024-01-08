@@ -1,4 +1,4 @@
-import './Footer.scss';
+import './footer.scss';
 import facebook from 'img/ic-facebook.png';
 import twitter from 'img/ic-twitter.png';
 import youtube from 'img/ic-youtube.png';
