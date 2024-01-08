@@ -1,10 +1,16 @@
-import { SAMPLE_USER_URL } from 'apis';
+import { USER_URL } from 'apis';
 import useQuery from 'hooks/useQuery';
 import logo from 'img/logo.svg';
 import './header.scss';
 
 export function Header() {
-  const { data: user, error, isLoading } = useQuery(SAMPLE_USER_URL);
+  const {
+    data: {
+      data: [user],
+    },
+    error,
+    isLoading,
+  } = useQuery(USER_URL, { data: [] });
 
   return (
     <header>
@@ -16,7 +22,7 @@ export function Header() {
           {error && <div className="error">에러가 발생했습니다.</div>}
           {user ? (
             <>
-              <img src={user.profileImageSource} className="profile-img" />
+              <img src={user.image_source} className="profile-img" />
               <span className="account-email">{user.email}</span>
             </>
           ) : (

@@ -4,6 +4,9 @@
   gap: 8px;
   padding: 60px 320px 90px;
   justify-content: center;
+  @media (max-width: 1123px) {
+    padding: 60px 32px 90px;
+  }
 }
 
 .folder-list {
@@ -20,4 +23,12 @@
   @media (min-width: 769px) and (max-width: 1123px) {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+.error {
+  text-align: center;
+}
+
+.emptyLinks {
+  text-align: center;
 }
