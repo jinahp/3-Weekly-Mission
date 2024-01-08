@@ -9,10 +9,15 @@ export function Favorite() {
     data: {
       folder: { links, owner, ...folder },
     },
+    error,
     isLoading,
   } = useQuery(SAMPLE_FOLDER_URL, {
     folder: { links: [], owner: {} },
   });
+
+  if (error) {
+    return <div className="error">에러가 발생했습니다.</div>;
+  }
 
   return (
     <>

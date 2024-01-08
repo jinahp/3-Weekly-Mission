@@ -4,7 +4,7 @@ import logo from 'img/logo.svg';
 import './header.scss';
 
 export function Header() {
-  const { data: user, isLoading } = useQuery(SAMPLE_USER_URL);
+  const { data: user, error, isLoading } = useQuery(SAMPLE_USER_URL);
 
   return (
     <header>
@@ -13,6 +13,7 @@ export function Header() {
           <img src={logo} alt="logo" />
         </a>
         <div className="account">
+          {error && <div className="error">에러가 발생했습니다.</div>}
           {user ? (
             <>
               <img src={user.profileImageSource} className="profile-img" />
