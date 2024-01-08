@@ -1,11 +1,10 @@
+import { SAMPLE_USER_URL } from 'apis';
 import useQuery from 'hooks/useQuery';
 import logo from 'img/logo.svg';
 import './header.scss';
 
 export function Header() {
-  const { data: user, isLoading } = useQuery(
-    'https://bootcamp-api.codeit.kr/api/sample/user'
-  );
+  const { data: user, isLoading } = useQuery(SAMPLE_USER_URL);
 
   return (
     <header>

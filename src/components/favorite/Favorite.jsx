@@ -1,7 +1,8 @@
-import useQuery from 'hooks/useQuery';
+import { SAMPLE_FOLDER_URL } from 'apis';
 import Card from 'components/card/Card';
-import './favorite.scss';
 import SearchBar from 'components/searchBar/SearchBar';
+import useQuery from 'hooks/useQuery';
+import './favorite.scss';
 
 export function Favorite() {
   const {
@@ -9,7 +10,7 @@ export function Favorite() {
       folder: { links, owner, ...folder },
     },
     isLoading,
-  } = useQuery('https://bootcamp-api.codeit.kr/api/sample/folder', {
+  } = useQuery(SAMPLE_FOLDER_URL, {
     folder: { links: [], owner: {} },
   });
 
