@@ -1,6 +1,7 @@
 import { FOLDER_DATA_LIST } from 'apis';
 import useQuery from 'hooks/useQuery';
 import icAdd from 'img/ic-add.svg';
+import icAddWhite from 'img/ic-add-w.svg';
 import icDelete from 'img/ic-delete.svg';
 import icEdit from 'img/ic-edit.svg';
 import icShare from 'img/ic-share.svg';
@@ -39,7 +40,13 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
           </div>
         ))}
         <div className="folder-list-button-ic-add-wrapper">
+          <span className="folder-list-button-mobile-text">폴더추가</span>
           <img src={icAdd} alt="add" className="folder-list-button-add" />
+          <img
+            src={icAddWhite}
+            alt="add"
+            className="folder-list-button-add-white"
+          />
         </div>
       </div>
       <div className="folder-list-button-box">
