@@ -1,12 +1,6 @@
 .folder-top {
+  padding: 60px 0 90px;
   background-color: var(--linkbrarybg);
-  display: flex;
-  gap: 8px;
-  padding: 60px 320px 90px;
-  justify-content: center;
-  @media (max-width: 1123px) {
-    padding: 60px 32px 90px;
-  }
 }
 
 .folder-list {
