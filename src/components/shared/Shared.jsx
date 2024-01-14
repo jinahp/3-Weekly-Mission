@@ -2,16 +2,21 @@ import { SAMPLE_FOLDER_URL } from 'apis';
 import Card from 'components/card/Card';
 import SearchBar from 'components/searchBar/SearchBar';
 import useQuery from 'hooks/useQuery';
-import './favorite.scss';
+import { useSearchParams } from 'react-router-dom';
+import './shared.scss';
 
-export function Favorite() {
+export function Shared() {
+  const [params, setParams] = useSearchParams();
+  const userId = params.get('userId');
+  const folderId = params.get('folderId');
+  const url = SAMPLE_FOLDER_URL; //linksUrl(folderId);
   const {
     data: {
       folder: { links, owner, ...folder },
     },
     error,
     isLoading,
-  } = useQuery(SAMPLE_FOLDER_URL, {
+  } = useQuery(url, {
     folder: { links: [], owner: {} },
   });
 
@@ -23,7 +28,7 @@ export function Favorite() {
     <>
       <div className="top">
         {isLoading || (
-          <div className="favorite-folder">
+          <div className="shared-folder">
             <img
               className="ic-smile"
               alt="smile"
@@ -36,7 +41,7 @@ export function Favorite() {
       </div>
       <main>
         <SearchBar text="링크를 검색해 보세요." />
-        <div className="favorite-list">
+        <div className="shared-list">
           {links.map((item) => (
             <Card link={item} key={item.id} />
           ))}
@@ -46,4 +51,4 @@ export function Favorite() {
   );
 }
 
-export default Favorite;
+export default Shared;
