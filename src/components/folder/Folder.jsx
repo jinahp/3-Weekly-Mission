@@ -2,12 +2,13 @@ import { linksUrl } from 'apis';
 import Card from 'components/card/Card';
 import SearchBar from 'components/searchBar/SearchBar';
 import useQuery from 'hooks/useQuery';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import AddLink from './AddLink';
 import FolderListButton from './FolderListButton';
 import './folder.scss';
 
 export function Folder() {
+  const mainRef = useRef(null);
   const [selectedFolder, setSelectedFolder] = useState(null);
 
   // 전체 링크
@@ -25,9 +26,9 @@ export function Folder() {
   return (
     <>
       <div className="folder-top">
-        <AddLink text="링크를 추가해 보세요." />
+        <AddLink mainRef={mainRef} text="링크를 추가해 보세요." />
       </div>
-      <main>
+      <main ref={mainRef}>
         <SearchBar text="링크를 검색해 보세요." />
 
         <FolderListButton
