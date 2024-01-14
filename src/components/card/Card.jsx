@@ -10,26 +10,24 @@ export function Card({ link }) {
   const dateString = date.toLocaleDateString();
   const timeString = moment(createdAt).fromNow();
 
-  const handleClick = () => {
-    window.open(link.url);
-  };
-
   return (
-    <article className="card" onClick={handleClick}>
-      <img src={icStar} alt="star" className="card-star" />
-      <img
-        className="card-image"
-        alt="thumbnail"
-        src={link.imageSource ?? link.image_source ?? defaultImg}
-      />
-      <div className="card-container">
-        <div className="card-wrapper">
-          <div className="card-time">{timeString}</div>
-          <img src={icKebab} alt="kebab" className="card-kebab" />
+    <article className="card">
+      <a href={link.url} target="_blank">
+        <img src={icStar} alt="star" className="card-star" />
+        <img
+          className="card-image"
+          alt="thumbnail"
+          src={link.imageSource ?? link.image_source ?? defaultImg}
+        />
+        <div className="card-container">
+          <div className="card-wrapper">
+            <div className="card-time">{timeString}</div>
+            <img src={icKebab} alt="kebab" className="card-kebab" />
+          </div>
+          <p className="card-description">{link.description}</p>
+          <div className="card-date">{dateString}</div>
         </div>
-        <p className="card-description">{link.description}</p>
-        <div className="card-date">{dateString}</div>
-      </div>
+      </a>
     </article>
   );
 }
