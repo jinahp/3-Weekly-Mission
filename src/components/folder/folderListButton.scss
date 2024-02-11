@@ -12,7 +12,8 @@
     display: flex;
     align-items: center;
     text-align: center;
-    &:hover, &:active {
+    &:hover,
+    &:active {
       background-color: #6d6afe;
       color: white;
     }
@@ -60,6 +61,7 @@
     width: 16px;
     height: 16px;
     display: block;
+    cursor: pointer;
 
     @media screen and (max-width: 768px) {
       z-index: 1;
@@ -96,6 +98,7 @@
   .folder-list-button-icons-wrapper {
     display: flex;
     align-items: center;
+    cursor: pointer;
 
     .folder-list-button-icons {
       width: 15px;

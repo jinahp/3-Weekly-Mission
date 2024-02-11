@@ -1,0 +1,25 @@
+.delete-modal {
+  * {
+    cursor: default;
+  }
+
+  .delete-modal-title {
+    text-align: center;
+    color: #9fa6b2;
+    font-size: 14px;
+    font-family: 'Pretendard';
+    font-weight: 400;
+    line-height: 22px;
+    word-wrap: break-word;
+  }
+
+  .delete-button {
+    background: var(--Linkbrary-red, #ff5b56);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover {
+      background: #ff2821;
+    }
+  }
+}

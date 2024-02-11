@@ -3,6 +3,7 @@ import defaultImg from 'img/img-default.svg';
 import moment from 'moment';
 import './card.scss';
 import icStar from 'img/ic-star.svg';
+import Popper from 'components/popper/Popper.jsx';
 
 export function Card({ link }) {
   const createdAt = link.createdAt ?? link.created_at;
@@ -22,7 +23,7 @@ export function Card({ link }) {
         <div className="card-container">
           <div className="card-wrapper">
             <div className="card-time">{timeString}</div>
-            <img src={icKebab} alt="kebab" className="card-kebab" />
+            <Popper linkTitle={link.title} />
           </div>
           <p className="card-description">{link.description}</p>
           <div className="card-date">{dateString}</div>

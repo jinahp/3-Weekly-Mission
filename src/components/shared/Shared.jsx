@@ -1,5 +1,6 @@
 import { SAMPLE_FOLDER_URL } from 'apis';
 import Card from 'components/card/Card';
+import DeleteModal from 'components/modal/DeleteModal';
 import SearchBar from 'components/searchBar/SearchBar';
 import useQuery from 'hooks/useQuery';
 import { useSearchParams } from 'react-router-dom';

@@ -1,13 +1,23 @@
 import { FOLDER_DATA_LIST } from 'apis';
+import AddFolderModal from 'components/modal/AddFolderModal';
+import ShareModal from 'components/modal/ShareModal';
+import UpdateModal from 'components/modal/UpdateModal';
 import useQuery from 'hooks/useQuery';
-import icAdd from 'img/ic-add.svg';
 import icAddWhite from 'img/ic-add-w.svg';
+import icAdd from 'img/ic-add.svg';
 import icDelete from 'img/ic-delete.svg';
 import icEdit from 'img/ic-edit.svg';
 import icShare from 'img/ic-share.svg';
+import { useState } from 'react';
 import './folderListButton.scss';
+import DeleteFolderModal from 'components/modal/DeleteFolderModal';
 
 export function FolderListButton({ selectedFolder, setSelectedFolder }) {
+  const [isOpen, setOpen] = useState(false);
+  const [isShareModalOpen, setShareModalOpen] = useState(false);
+  const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
+  const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+
   const {
     data: { data: folders },
   } = useQuery(FOLDER_DATA_LIST, {
@@ -20,6 +30,18 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
 
   const handleFolderClick = (folder) => {
     setSelectedFolder(folder);
+  };
+
+  const handleShareOpen = () => {
+    setShareModalOpen(true);
+  };
+
+  const handleUpdateOpen = () => {
+    setUpdateModalOpen(true);
+  };
+
+  const handleDeleteOpen = () => {
+    setDeleteModalOpen(true);
   };
 
   return (
@@ -41,7 +63,13 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
         ))}
         <div className="folder-list-button-ic-add-wrapper">
           <span className="folder-list-button-mobile-text">폴더추가</span>
-          <img src={icAdd} alt="add" className="folder-list-button-add" />
+          <img
+            src={icAdd}
+            alt="add"
+            className="folder-list-button-add"
+            onClick={() => setOpen(true)}
+          />
+          <AddFolderModal isOpen={isOpen} setOpen={setOpen} />
           <img
             src={icAddWhite}
             alt="add"
@@ -61,18 +89,58 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
               src={icShare}
               alt="share"
               className="folder-list-button-icons"
+              onClick={handleShareOpen}
             />
-            <div className="folder-list-button-ic-text">공유</div>
-            <img src={icEdit} alt="edit" className="folder-list-button-icons" />
-            <div className="folder-list-button-ic-text">이름 변경</div>
+            <div
+              className="folder-list-button-ic-text"
+              onClick={handleShareOpen}
+            >
+              공유
+            </div>
+            <img
+              src={icEdit}
+              alt="edit"
+              className="folder-list-button-icons"
+              onClick={handleUpdateOpen}
+            />
+            <div
+              className="folder-list-button-ic-text"
+              onClick={handleUpdateOpen}
+            >
+              이름 변경
+            </div>
             <img
               src={icDelete}
               alt="delete"
               className="folder-list-button-icons"
+              onClick={handleDeleteOpen}
             />
-            <div className="folder-list-button-ic-text">삭제</div>
+            <div
+              className="folder-list-button-ic-text"
+              onClick={handleDeleteOpen}
+            >
+              삭제
+            </div>
           </div>
         )}
+        <ShareModal
+          isOpen={isShareModalOpen}
+          modalTitle="폴더 공유"
+          folderId={selectedFolder?.id}
+          name={selectedFolder?.name}
+          setOpen={setShareModalOpen}
+        />
+        <UpdateModal
+          isOpen={isUpdateModalOpen}
+          modalTitle="폴더 이름 변경"
+          setOpen={setUpdateModalOpen}
+        />
+        <DeleteFolderModal
+          isOpen={isDeleteModalOpen}
+          modalTitle="폴더 삭제"
+          setOpen={setDeleteModalOpen}
+          name={selectedFolder?.name}
+        />
       </div>
     </>
   );

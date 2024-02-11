@@ -1,0 +1,20 @@
+.popper {
+  position: absolute;
+  z-index: 1;
+  left: 235px;
+  bottom: 130px;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid gray;
+  background-color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.popper-menu {
+  padding: 0.5rem;
+  &:hover {
+    background-color: #6d6afe;
+    color: white;
+  }
+}
