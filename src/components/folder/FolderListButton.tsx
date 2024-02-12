@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { FOLDER_DATA_LIST } from '@/apis';
 import AddFolderModal from '@/components/modal/AddFolderModal';
 import ShareModal from '@/components/modal/ShareModal';

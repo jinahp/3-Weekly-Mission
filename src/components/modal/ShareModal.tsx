@@ -1,14 +1,15 @@
 import { sharedUrl } from '@/apis';
-import DefaultModal from './DefaultModal';
 import facebook from '@/img/ic-facebook.svg';
 import kakao from '@/img/ic-kakao.svg';
 import link from '@/img/ic-link.svg';
 import { useState } from 'react';
+import DefaultModal from './DefaultModal';
 import { DefaultModalProps } from './types';
 
 interface ShareModalProps extends DefaultModalProps {
   folderId?: number;
   name: string;
+  description: string;
 }
 
 const ShareModal = (props: ShareModalProps) => {
@@ -39,9 +40,9 @@ const ShareModal = (props: ShareModalProps) => {
         objectType: 'feed',
         content: {
           title: props.name,
-          description: props.name,
+          description: props.description,
           imageUrl:
-            'https://developers.kakao.com/assets/img/about/logos/kakaotalksharing/kakaotalk_sharing_btn_medium.png',
+            'https://images.unsplash.com/photo-1549675584-91f19337af3d?q=80&w=2672&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           link: {
             mobileWebUrl: webUrl,
             webUrl,
