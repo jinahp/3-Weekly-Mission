@@ -54,7 +54,7 @@ const Folder = () => {
         <SearchBar
           text="링크를 검색해 보세요."
           onChange={handleSearchChange}
-          onKeyPress={handleKeyPress}
+          onKeyUp={handleKeyPress}
         />
 
         <FolderListButton

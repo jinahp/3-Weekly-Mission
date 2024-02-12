@@ -6,10 +6,10 @@ import './searchBar.scss';
 interface SearchBarProps {
   text: string;
   onChange: (searchText: string) => void;
-  onKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const SearchBar = ({ text, onChange, onKeyPress }: SearchBarProps) => {
+const SearchBar = ({ text, onChange, onKeyUp }: SearchBarProps) => {
   const [searchText, setSearchText] = useState('');
 
   const handleDeleteClick = () => {
@@ -32,14 +32,16 @@ const SearchBar = ({ text, onChange, onKeyPress }: SearchBarProps) => {
           placeholder={text}
           value={searchText}
           onChange={handleSearchChange}
-          onKeyPress={onKeyPress}
+          onKeyUp={onKeyUp}
         />
-        <img
-          className="ic-search-delete"
-          alt="search-delete"
-          src={icDelete}
-          onClick={handleDeleteClick}
-        />
+        {searchText && (
+          <img
+            className="ic-search-delete"
+            alt="search-delete"
+            src={icDelete}
+            onClick={handleDeleteClick}
+          />
+        )}
       </div>
     </div>
   );
