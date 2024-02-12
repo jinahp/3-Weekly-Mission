@@ -1,23 +1,18 @@
-import link from 'img/ic-link.svg';
-import './addLink.scss';
+import AddModal from '@/components/modal/AddModal';
+import link from '@/img/ic-link.svg';
 import { useEffect, useRef, useState } from 'react';
-import AddModal from 'components/modal/AddModal';
+import './addLink.scss';
 
-export function AddLink({ text, mainRef }) {
+interface AddLinkProps {
+  text: string;
+  mainRef: React.RefObject<any>;
+}
+
+const AddLink = ({ text, mainRef }: AddLinkProps) => {
   const [inputLink, setInputLink] = useState('');
-  const ref = useRef(null);
-  const [scrollDirection, setScrollDirection] = useState('');
-  const timeoutId = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
+  const [scrollDirection, setScrollDirection] = useState<string>('');
   const [isAddModalOpen, setAddModalOpen] = useState(false);
-
-  const debounce = (func, delay) => {
-    return function (...args) {
-      clearTimeout(timeoutId.current);
-      timeoutId.current = setTimeout(() => {
-        func(...args);
-      }, delay);
-    };
-  };
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver(
@@ -33,13 +28,14 @@ export function AddLink({ text, mainRef }) {
       { threshold: 0 }
     );
 
-    if (ref.current) {
-      intersectionObserver.observe(ref.current.parentElement);
+    const { current } = ref;
+    if (current) {
+      intersectionObserver.observe(current.parentElement!);
     }
 
     return () => {
-      if (ref.current) {
-        intersectionObserver.unobserve(ref.current.parentElement);
+      if (current) {
+        intersectionObserver.unobserve(current.parentElement!);
       }
     };
   }, [ref]);
@@ -48,7 +44,7 @@ export function AddLink({ text, mainRef }) {
     setAddModalOpen(true);
   };
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputLink(e.target.value);
   };
 
@@ -79,6 +75,6 @@ export function AddLink({ text, mainRef }) {
       />
     </div>
   );
-}
+};
 
 export default AddLink;

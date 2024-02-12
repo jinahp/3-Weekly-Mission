@@ -1,7 +1,11 @@
-import search from 'img/ic-search.svg';
+import search from '@/img/ic-search.svg';
 import './searchBar.scss';
 
-export function SearchBar({ text }) {
+interface SearchBarProps {
+  text: string;
+}
+
+const SearchBar = ({ text }: SearchBarProps) => {
   return (
     <div className="search-bar">
       <div className="search-bar-frame">
@@ -10,6 +14,6 @@ export function SearchBar({ text }) {
       </div>
     </div>
   );
-}
+};
 
 export default SearchBar;

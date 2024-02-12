@@ -1,14 +1,21 @@
-import { sharedUrl } from 'apis';
+import { sharedUrl } from '@/apis';
 import DefaultModal from './DefaultModal';
-import facebook from 'img/ic-facebook.svg';
-import kakao from 'img/ic-kakao.svg';
-import link from 'img/ic-link.svg';
+import facebook from '@/img/ic-facebook.svg';
+import kakao from '@/img/ic-kakao.svg';
+import link from '@/img/ic-link.svg';
 import { useState } from 'react';
+import { DefaultModalProps } from './types';
 
-export function ShareModal(props) {
+interface ShareModalProps extends DefaultModalProps {
+  folderId?: number;
+  name: string;
+}
+
+const ShareModal = (props: ShareModalProps) => {
   const [copied, setCopied] = useState(false);
 
   const copyLink = () => {
+    const webUrl = sharedUrl(window.location.origin, props.folderId);
     navigator.clipboard
       .writeText(webUrl)
       .then(() => {
@@ -20,12 +27,12 @@ export function ShareModal(props) {
       .catch((error) => console.error('링크 복사 실패:', error));
   };
 
-  const webUrl = sharedUrl(window.location.origin, props.folderId);
   const shareKakao = () => {
+    const webUrl = sharedUrl(window.location.origin, props.folderId);
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
-        kakao.init(process.env.REACT_APP_KEY);
+        kakao.init(import.meta.env.VITE_KAKAO_KEY);
       }
 
       kakao.Link.sendDefault({
@@ -87,10 +94,6 @@ export function ShareModal(props) {
       </div>
     </DefaultModal>
   );
-}
-
-ShareModal.propTypes = {
-  ...DefaultModal.propTypes,
 };
 
 export default ShareModal;

@@ -1,23 +1,35 @@
-import { SAMPLE_FOLDER_URL } from 'apis';
-import Card from 'components/card/Card';
-import DeleteModal from 'components/modal/DeleteModal';
-import SearchBar from 'components/searchBar/SearchBar';
-import useQuery from 'hooks/useQuery';
+import { SAMPLE_FOLDER_URL } from '@/apis';
+import Card from '@/components/card/Card';
+import SearchBar from '@/components/searchBar/SearchBar';
+import useQuery from '@/hooks/useQuery';
 import { useSearchParams } from 'react-router-dom';
 import './shared.scss';
 
-export function Shared() {
+interface Folder {
+  links: Link[];
+  name?: string;
+  owner: {
+    name?: string;
+    profileImageSource?: string;
+  };
+}
+
+interface SampleFolder {
+  folder: Folder;
+}
+
+const Shared = () => {
   const [params, setParams] = useSearchParams();
   const userId = params.get('userId');
   const folderId = params.get('folderId');
-  const url = SAMPLE_FOLDER_URL; //linksUrl(folderId);
+  const url = SAMPLE_FOLDER_URL;
   const {
     data: {
       folder: { links, owner, ...folder },
     },
     error,
     isLoading,
-  } = useQuery(url, {
+  } = useQuery<SampleFolder>(url, {
     folder: { links: [], owner: {} },
   });
 
@@ -43,13 +55,13 @@ export function Shared() {
       <main>
         <SearchBar text="링크를 검색해 보세요." />
         <div className="shared-list">
-          {links.map((item) => (
+          {links.map((item: Link) => (
             <Card link={item} key={item.id} />
           ))}
         </div>
       </main>
     </>
   );
-}
+};
 
 export default Shared;

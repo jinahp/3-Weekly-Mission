@@ -1,15 +1,15 @@
-import { linksUrl } from 'apis';
-import Card from 'components/card/Card';
-import SearchBar from 'components/searchBar/SearchBar';
-import useQuery from 'hooks/useQuery';
-import { useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
+import { linksUrl } from '@/apis';
+import Card from '@/components/card/Card';
+import SearchBar from '@/components/searchBar/SearchBar';
+import useQuery from '@/hooks/useQuery';
 import AddLink from './AddLink';
 import FolderListButton from './FolderListButton';
 import './folder.scss';
 
-export function Folder() {
-  const mainRef = useRef(null);
-  const [selectedFolder, setSelectedFolder] = useState(null);
+const Folder = () => {
+  const mainRef = useRef<HTMLElement | null>(null);
+  const [selectedFolder, setSelectedFolder] = useState<any>(null);
 
   // 전체 링크
   const {
@@ -39,7 +39,7 @@ export function Folder() {
           <div className="emptyLinks">저장된 링크가 없습니다.</div>
         ) : (
           <div className="folder-list">
-            {links.map((item) => (
+            {links.map((item: any) => (
               <Card link={item} key={item.id} />
             ))}
           </div>
@@ -47,6 +47,6 @@ export function Folder() {
       </main>
     </>
   );
-}
+};
 
 export default Folder;

@@ -1,16 +1,16 @@
+import btnClose from '@/img/btn-close.svg';
 import clsx from 'clsx';
-import btnClose from 'img/btn-close.svg';
-import PropTypes from 'prop-types';
 import './modal.scss';
+import { DefaultModalProps } from './types';
 
-export function DefaultModal(props) {
+export function DefaultModal(props: DefaultModalProps) {
   const { children, className, isOpen, modalTitle, setOpen } = props;
 
   const closeModal = () => {
     setOpen?.(false);
   };
 
-  const handleBackClick = (e) => {
+  const handleBackClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.preventDefault();
   };
 
@@ -33,10 +33,5 @@ export function DefaultModal(props) {
     )
   );
 }
-
-DefaultModal.propTypes = {
-  isOpen: PropTypes.bool,
-  setOpen: PropTypes.func,
-};
 
 export default DefaultModal;

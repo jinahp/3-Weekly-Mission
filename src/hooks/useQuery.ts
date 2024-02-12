@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
 
-async function fetchData(url) {
+async function fetchData(url: string) {
   const response = await fetch(url);
   let data = await response.json();
   return data;
 }
 
-export function useQuery(url, initialData) {
+export function useQuery<T>(url: string, initialData: T) {
   const [data, setData] = useState(initialData);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<any | null>(null);
   const [isLoading, setLoading] = useState(true);
 
-  async function load(url) {
+  async function load(url: string) {
     try {
       const json = await fetchData(url);
       setData(json);

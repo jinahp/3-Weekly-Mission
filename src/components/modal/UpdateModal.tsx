@@ -1,7 +1,8 @@
-import Button from 'components/button/Button';
+import Button from '@/components/button/Button';
 import DefaultModal from './DefaultModal';
+import { DefaultModalProps } from './types';
 
-export function UpdateModal(props) {
+const UpdateModal = (props: DefaultModalProps) => {
   return (
     <div>
       <DefaultModal {...props}>
@@ -10,10 +11,6 @@ export function UpdateModal(props) {
       </DefaultModal>
     </div>
   );
-}
-
-UpdateModal.propTypes = {
-  ...DefaultModal.propTypes,
 };
 
 export default UpdateModal;

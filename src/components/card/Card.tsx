@@ -1,19 +1,18 @@
-import icKebab from 'img/ic-kebab.svg';
-import defaultImg from 'img/img-default.svg';
+import Popper from '@/components/popper/Popper';
+import icStar from '@/img/ic-star.svg';
+import defaultImg from '@/img/img-default.svg';
 import moment from 'moment';
 import './card.scss';
-import icStar from 'img/ic-star.svg';
-import Popper from 'components/popper/Popper.jsx';
 
-export function Card({ link }) {
-  const createdAt = link.createdAt ?? link.created_at;
+export function Card({ link }: { link: Link }) {
+  const createdAt = link.createdAt ?? link.created_at ?? 0;
   const date = new Date(createdAt);
   const dateString = date.toLocaleDateString();
   const timeString = moment(createdAt).fromNow();
 
   return (
     <article className="card">
-      <a href={link.url} target="_blank">
+      <a href={link.url} rel="noreferrer" target="_blank">
         <img src={icStar} alt="star" className="card-star" />
         <img
           className="card-image"

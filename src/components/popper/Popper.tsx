@@ -1,14 +1,19 @@
 import { useClick, useFloating, useInteractions } from '@floating-ui/react';
-import icKebab from 'img/ic-kebab.svg';
-import { useState } from 'react';
+import icKebab from '@/img/ic-kebab.svg';
+import { useState, useRef } from 'react';
 import './popper.scss';
-import DeleteModal from 'components/modal/DeleteModal';
-import AddModal from 'components/modal/AddModal';
+import DeleteModal from '@/components/modal/DeleteModal';
+import AddModal from '@/components/modal/AddModal';
 
-function Popper(props) {
+interface PopperProps {
+  linkTitle: string;
+}
+
+const Popper = (props: PopperProps) => {
   const [isOpen, setOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const ref = useRef<HTMLImageElement | null>(null);
 
   const { refs, context } = useFloating({
     open: isOpen,
@@ -20,7 +25,7 @@ function Popper(props) {
 
   const { getReferenceProps, getFloatingProps } = useInteractions([click]);
 
-  const onClick = (e) => {
+  const onClick = (e: React.MouseEvent<HTMLImageElement, MouseEvent>) => {
     e.preventDefault();
     setOpen(!isOpen);
   };
@@ -39,7 +44,10 @@ function Popper(props) {
         src={icKebab}
         alt="kebab"
         className="card-kebab"
-        ref={refs.setReference}
+        ref={(node) => {
+          refs.setReference(node);
+          ref.current = node;
+        }}
         {...getReferenceProps({ onClick })}
       />
       {isOpen && (
@@ -70,6 +78,6 @@ function Popper(props) {
       />
     </>
   );
-}
+};
 
 export default Popper;

@@ -1,18 +1,28 @@
-import { FOLDER_DATA_LIST } from 'apis';
-import AddFolderModal from 'components/modal/AddFolderModal';
-import ShareModal from 'components/modal/ShareModal';
-import UpdateModal from 'components/modal/UpdateModal';
-import useQuery from 'hooks/useQuery';
-import icAddWhite from 'img/ic-add-w.svg';
-import icAdd from 'img/ic-add.svg';
-import icDelete from 'img/ic-delete.svg';
-import icEdit from 'img/ic-edit.svg';
-import icShare from 'img/ic-share.svg';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { FOLDER_DATA_LIST } from '@/apis';
+import AddFolderModal from '@/components/modal/AddFolderModal';
+import ShareModal from '@/components/modal/ShareModal';
+import UpdateModal from '@/components/modal/UpdateModal';
+import DeleteFolderModal from '@/components/modal/DeleteFolderModal';
+import useQuery from '@/hooks/useQuery';
+import icAddWhite from '@/img/ic-add-w.svg';
+import icAdd from '@/img/ic-add.svg';
+import icDelete from '@/img/ic-delete.svg';
+import icEdit from '@/img/ic-edit.svg';
+import icShare from '@/img/ic-share.svg';
 import './folderListButton.scss';
-import DeleteFolderModal from 'components/modal/DeleteFolderModal';
 
-export function FolderListButton({ selectedFolder, setSelectedFolder }) {
+interface Folder {
+  id: number;
+  name: string;
+}
+
+interface Props {
+  selectedFolder: Folder | null;
+  setSelectedFolder: (folder: Folder | null) => void;
+}
+
+const FolderListButton = ({ selectedFolder, setSelectedFolder }: Props) => {
   const [isOpen, setOpen] = useState(false);
   const [isShareModalOpen, setShareModalOpen] = useState(false);
   const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
@@ -20,7 +30,7 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
 
   const {
     data: { data: folders },
-  } = useQuery(FOLDER_DATA_LIST, {
+  } = useQuery<{ data: Folder[] }>(FOLDER_DATA_LIST, {
     data: [],
   });
 
@@ -28,7 +38,7 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
     setSelectedFolder(null);
   };
 
-  const handleFolderClick = (folder) => {
+  const handleFolderClick = (folder: Folder) => {
     setSelectedFolder(folder);
   };
 
@@ -127,7 +137,7 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
           isOpen={isShareModalOpen}
           modalTitle="폴더 공유"
           folderId={selectedFolder?.id}
-          name={selectedFolder?.name}
+          name={selectedFolder?.name || ''}
           setOpen={setShareModalOpen}
         />
         <UpdateModal
@@ -139,11 +149,11 @@ export function FolderListButton({ selectedFolder, setSelectedFolder }) {
           isOpen={isDeleteModalOpen}
           modalTitle="폴더 삭제"
           setOpen={setDeleteModalOpen}
-          name={selectedFolder?.name}
+          name={selectedFolder?.name || ''}
         />
       </div>
     </>
   );
-}
+};
 
 export default FolderListButton;
