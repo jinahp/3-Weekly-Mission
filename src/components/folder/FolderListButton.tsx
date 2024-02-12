@@ -15,6 +15,7 @@ import './folderListButton.scss';
 interface Folder {
   id: number;
   name: string;
+  description: string;
 }
 
 interface Props {
@@ -138,6 +139,7 @@ const FolderListButton = ({ selectedFolder, setSelectedFolder }: Props) => {
           modalTitle="폴더 공유"
           folderId={selectedFolder?.id}
           name={selectedFolder?.name || ''}
+          description={selectedFolder?.description || ''}
           setOpen={setShareModalOpen}
         />
         <UpdateModal
