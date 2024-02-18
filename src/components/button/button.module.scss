@@ -1,0 +1,22 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+  gap: 10px;
+
+  background: var(
+    --gra-purpleblue-to-skyblue,
+    linear-gradient(91deg, #6d6afe 0.12%, #6ae3fe 101.84%)
+  );
+  color: white;
+}
+
+.modal-button {
+  font-weight: bold;
+  font-size: 0.85rem;
+  width: 100%;
+}

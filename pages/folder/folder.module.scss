@@ -1,0 +1,28 @@
+.folder-top {
+  padding: 60px 0 90px;
+  background-color: var(--linkbrarybg);
+}
+
+.folder-list {
+  width: 100%;
+  display: grid;
+  gap: 25px;
+  justify-items: center;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 1124px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 769px) and (max-width: 1123px) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.error {
+  text-align: center;
+}
+
+.emptyLinks {
+  text-align: center;
+}

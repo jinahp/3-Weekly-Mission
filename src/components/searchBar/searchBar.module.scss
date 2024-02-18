@@ -1,0 +1,32 @@
+.search-bar {
+  font-family: 'Pretendard', Helvetica;
+  background-color: #f5f5f5;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 16px;
+  width: 100%;
+  margin: 40px 0;
+}
+
+.search-bar-frame {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.ic-search {
+  height: 16px;
+  width: 16px;
+}
+
+.ic-search-delete {
+  height: 20px;
+  width: 20px;
+}
+
+.search-bar-text-wrapper {
+  width: 100%;
+  font-size: 1.15em;
+  line-height: 24px;
+  color: #666666;
+}

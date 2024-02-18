@@ -1,0 +1,44 @@
+.title {
+  color: #9fa6b2;
+}
+
+.share-list-box {
+  font-size: 1rem;
+}
+
+.share-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  width: 100%;
+  gap: 10px 40px;
+}
+
+.share-icon {
+  padding: 15px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.kakao {
+  background-color: #ffeb00;
+}
+
+.facebook {
+  background-color: #3b5998;
+}
+
+.link {
+  background-color: var(--linkbrarybg);
+}
+
+.link-copy-success {
+  position: absolute;
+  top: 259px;
+  left: 120px;
+  background-color: var(--linkbraryprimary-color);
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+}

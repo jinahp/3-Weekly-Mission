@@ -1,0 +1,117 @@
+.folder-list-button-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+  font-family: 'Pretendard', Helvetica;
+  flex-wrap: wrap;
+
+  .folder-list-button {
+    padding: 8px 12px;
+    border-radius: 5px;
+    border: 1px solid #6d6afe;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    &:hover,
+    &:active {
+      background-color: #6d6afe;
+      color: white;
+    }
+  }
+}
+
+.folder-list-button-ic-add-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    bottom: 101px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    justify-content: center;
+
+    background-color: #6d6afe;
+    border: 1px solid #ffffff;
+    border-radius: 20px;
+    padding: 8px 24px;
+    width: 135px;
+    height: 36px;
+    z-index: 2;
+  }
+  @media screen and not (max-width: 768px) {
+    flex-grow: 1;
+  }
+
+  .folder-list-button-mobile-text {
+    color: #ffffff;
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+
+    @media screen and not (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .folder-list-button-add {
+    width: 16px;
+    height: 16px;
+    display: block;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+      z-index: 1;
+      display: none;
+    }
+  }
+
+  .folder-list-button-add-white {
+    display: none;
+
+    @media screen and (max-width: 768px) {
+      display: block;
+    }
+  }
+}
+.folder-list-button-box {
+  font-family: 'Pretendard', Helvetica;
+  display: flex;
+  width: 100%;
+
+  .folder-list-button-title-wrapper {
+    margin: 24px 0;
+    display: flex;
+    flex-grow: 1;
+    font-family: 'Pretendard', Helvetica;
+
+    .folder-list-button-title {
+      height: 40px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+  }
+
+  .folder-list-button-icons-wrapper {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .folder-list-button-icons {
+      width: 15px;
+      margin: 0 2px;
+    }
+
+    .folder-list-button-ic-text {
+      font-size: 1em;
+      color: #9fa6b2;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
