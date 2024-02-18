@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import { linksUrl } from '@src/apis';
+import { getLinksUrl } from '@src/apis';
 import Card from '@src/components/card/Card';
 import SearchBar from '@src/components/searchBar/SearchBar';
 import useQuery from '@src/hooks/useQuery';
@@ -8,7 +8,6 @@ import FolderListButton from './FolderListButton';
 import styles from './folder.module.scss';
 
 const Folder = () => {
-  const mainRef = useRef<HTMLElement | null>(null);
   const [selectedFolder, setSelectedFolder] = useState<any>(null);
   const [searchText, setSearchText] = useState('');
 
@@ -16,7 +15,7 @@ const Folder = () => {
   const {
     data: { data: links },
     error,
-  } = useQuery(linksUrl(selectedFolder?.id), {
+  } = useQuery(getLinksUrl(selectedFolder?.id), {
     data: [],
   });
 
@@ -48,9 +47,9 @@ const Folder = () => {
   return (
     <>
       <div className={styles['folder-top']}>
-        <AddLink mainRef={mainRef} text="링크를 추가해 보세요." />
+        <AddLink text="링크를 추가해 보세요." />
       </div>
-      <main ref={mainRef}>
+      <main>
         <SearchBar
           text="링크를 검색해 보세요."
           onChange={handleSearchChange}

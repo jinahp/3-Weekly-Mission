@@ -1,4 +1,4 @@
-import Button from '@src/components/button/Button';
+import { ModalButton } from '@src/components/button/Button';
 import DefaultModal from './DefaultModal';
 
 interface AddFolderModalProps {
@@ -15,7 +15,7 @@ const AddFolderModal = ({ isOpen, setOpen }: AddFolderModalProps) => {
       setOpen={setOpen}
     >
       <input placeholder="내용 입력" />
-      <Button className="modal-button">추가하기</Button>
+      <ModalButton>추가하기</ModalButton>
     </DefaultModal>
   );
 };

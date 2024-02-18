@@ -6,7 +6,6 @@ import Image from 'next/image';
 
 interface AddLinkProps {
   text: string;
-  mainRef: React.RefObject<any>;
 }
 
 const AddLink = ({ text }: AddLinkProps) => {

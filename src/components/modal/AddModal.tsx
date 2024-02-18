@@ -1,12 +1,12 @@
-import Button from '@src/components/button/Button';
-import DefaultModal from './DefaultModal';
-import useQuery from '@src/hooks/useQuery';
 import { FOLDER_DATA_LIST } from '@src/apis'; // FolderItem의 정의는 apis 파일에 있어야 합니다.
+import { ModalButton } from '@src/components/button/Button';
+import useQuery from '@src/hooks/useQuery';
 import check from '@src/img/ic-check.svg';
-import { useState } from 'react';
-import { DefaultModalProps } from './types';
 import Image from 'next/image';
+import { useState } from 'react';
+import DefaultModal from './DefaultModal';
 import styles from './modal.module.scss';
+import { DefaultModalProps } from './types';
 
 interface AddModalProps extends DefaultModalProps {
   title: string;
@@ -59,7 +59,7 @@ export function AddModal(props: AddModalProps) {
         ))}
       </div>
 
-      <Button className="modal-button">추가하기</Button>
+      <ModalButton>추가하기</ModalButton>
     </DefaultModal>
   );
 }

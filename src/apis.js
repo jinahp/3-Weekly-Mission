@@ -5,10 +5,10 @@ export const USER_URL = `${BASE_URL}/api/users/1`;
 
 export const FOLDER_DATA_LIST = `${BASE_URL}/api/users/1/folders`;
 
-export const folderUrl = (userId, folderId) =>
+export const getFolderUrl = (userId, folderId) =>
   `${BASE_URL}/api/users/${userId}/folders/${folderId}`;
 
-export const linksUrl = (folderId) => {
+export const getLinksUrl = (folderId) => {
   const url = new URL(`${BASE_URL}/api/users/1/links`);
   if (folderId) {
     url.searchParams.append('folderId', folderId);
@@ -16,6 +16,6 @@ export const linksUrl = (folderId) => {
   return url.toString();
 };
 
-export const sharedUrl = (origin, folderId) => {
+export const getSharedUrl = (origin, folderId) => {
   return `${origin}/shared?user=1&folder=${folderId}`;
 };

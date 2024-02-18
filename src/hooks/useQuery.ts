@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 async function fetchData(url: string) {
   const response = await fetch(url);
-  let data = await response.json();
+  const data = await response.json();
   return data;
 }
 

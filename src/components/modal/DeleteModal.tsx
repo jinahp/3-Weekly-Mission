@@ -1,4 +1,4 @@
-import Button from '@src/components/button/Button';
+import { ModalButton } from '@src/components/button/Button';
 import DefaultModal from './DefaultModal';
 import styles from './deleteModal.module.scss';
 import { DefaultModalProps } from './types';
@@ -13,7 +13,7 @@ export function DeleteModal(props: DeleteModalProps) {
   return (
     <DefaultModal className={styles['delete-modal']} {...restProps}>
       <div className={styles['delete-modal-title']}>{title}</div>
-      <Button className={styles['modal-button delete-button']}>삭제하기</Button>
+      <ModalButton className={styles['delete-button']}>삭제하기</ModalButton>
     </DefaultModal>
   );
 }

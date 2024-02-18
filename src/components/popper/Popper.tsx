@@ -1,10 +1,11 @@
 import { useClick, useFloating, useInteractions } from '@floating-ui/react';
-import icKebab from '@src/img/ic-kebab.svg';
-import { useState, useRef } from 'react';
-import styles from './popper.module.scss';
-import DeleteModal from '@src/components/modal/DeleteModal';
 import AddModal from '@src/components/modal/AddModal';
+import DeleteModal from '@src/components/modal/DeleteModal';
+import icKebab from '@src/img/ic-kebab.svg';
+import clsx from 'clsx';
 import Image from 'next/image';
+import { useRef, useState } from 'react';
+import styles from './popper.module.scss';
 
 interface PopperProps {
   linkTitle: string;
@@ -14,7 +15,6 @@ const Popper = (props: PopperProps) => {
   const [isOpen, setOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
   const [isAddModalOpen, setAddModalOpen] = useState(false);
-  const ref = useRef<HTMLImageElement | null>(null);
 
   const { refs, context } = useFloating({
     open: isOpen,
@@ -45,10 +45,7 @@ const Popper = (props: PopperProps) => {
         src={icKebab}
         alt="kebab"
         className={styles['card-kebab']}
-        ref={(node) => {
-          refs.setReference(node);
-          ref.current = node;
-        }}
+        ref={(node) => refs.setReference(node)}
         {...getReferenceProps({ onClick })}
       />
       {isOpen && (
@@ -58,13 +55,13 @@ const Popper = (props: PopperProps) => {
           {...getFloatingProps({ onClick })}
         >
           <div
-            className={styles['popper-menu pooper-delete']}
+            className={clsx(styles['popper-menu'], styles['pooper-delete'])}
             onClick={handleDelete}
           >
             삭제하기
           </div>
           <div
-            className={styles['popper-menu popper-add']}
+            className={clsx(styles['popper-menu'], styles['popper-add'])}
             onClick={handleAddLink}
           >
             폴더에 추가

@@ -11,4 +11,13 @@ export const Button = ({ children, className }: ButtonProps) => {
   return <button className={buttonClassName}>{children}</button>;
 };
 
+export const ModalButton = ({ children, className }: ButtonProps) => {
+  const buttonClassName = clsx(
+    styles.button,
+    styles['modal-button'],
+    className
+  );
+  return <button className={buttonClassName}>{children}</button>;
+};
+
 export default Button;

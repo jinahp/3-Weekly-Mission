@@ -1,12 +1,12 @@
-import { sharedUrl } from '@src/apis';
+import { getSharedUrl } from '@src/apis';
 import facebook from '@src/img/ic-facebook.svg';
 import kakao from '@src/img/ic-kakao.svg';
 import link from '@src/img/ic-link.svg';
+import Image from 'next/image';
 import { useState } from 'react';
 import DefaultModal from './DefaultModal';
-import { DefaultModalProps } from './types';
-import Image from 'next/image';
 import styles from './shareModal.module.scss';
+import { DefaultModalProps } from './types';
 
 interface ShareModalProps extends DefaultModalProps {
   folderId?: number;
@@ -18,7 +18,7 @@ const ShareModal = (props: ShareModalProps) => {
   const [copied, setCopied] = useState(false);
 
   const copyLink = () => {
-    const webUrl = sharedUrl(window.location.origin, props.folderId);
+    const webUrl = getSharedUrl(window.location.origin, props.folderId);
     navigator.clipboard
       .writeText(webUrl)
       .then(() => {
@@ -31,7 +31,7 @@ const ShareModal = (props: ShareModalProps) => {
   };
 
   const shareKakao = () => {
-    const webUrl = sharedUrl(window.location.origin, props.folderId);
+    const webUrl = getSharedUrl(window.location.origin, props.folderId);
     if (window.Kakao) {
       const kakao = window.Kakao;
       if (!kakao.isInitialized()) {
